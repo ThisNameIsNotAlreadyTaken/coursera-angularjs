@@ -1,2 +1,2 @@
-# coursera-angularjs
-Coursera angular.js course materials &amp; exercises
+# Coursera "Single Page Web Applications with AngularJS" course
+Materials &amp; exercises
