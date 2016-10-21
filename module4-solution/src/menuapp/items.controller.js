@@ -7,7 +7,7 @@
     function ItemsController($rootScope, data) {
         var self = this;
         var cancellers = [];
-        self.category = data.category;
+        self.category = data.category || { short_name: 'All Categories' };
         self.items = data.menu_items;
 
         self.$onInit = function () {
