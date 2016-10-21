@@ -3,7 +3,7 @@
 
     angular.module('NavBar')
         .component('navBar', {
-            templateUrl: 'templates/navbar.template.html',
+            templateUrl: 'src/navbar/templates/navbar.template.html',
             controller: NavBarController
         });
 
