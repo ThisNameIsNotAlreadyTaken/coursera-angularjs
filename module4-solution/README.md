@@ -1,0 +1,1 @@
+My solution of the module 4 coding assignment for Coursera Angular.js course.

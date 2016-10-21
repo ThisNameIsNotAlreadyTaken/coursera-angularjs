@@ -1,0 +1,7 @@
+<ul class="nav nav-sidebar">
+	<li ng-repeat="item in $ctrl.items" ng-class="{'active': item.short_name === $ctrl.selectedCategoryShortName}">
+		<a ui-sref="categories.items({itemName: item.short_name})">
+			{{ item.name }}
+		</a>
+	</li>
+</ul>
