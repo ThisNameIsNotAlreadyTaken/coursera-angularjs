@@ -1,0 +1,72 @@
+<div class="container">
+	<h1 class="text-center">Please provide your information to sign up.</h1><br>
+	<div class="alert alert-success" ng-if="signUpCtrl.isSaved">
+		<strong>Success!</strong> Your information has been saved! <a ui-sref="public.myinfo">My info page</a> is now available!
+	</div>
+	<form class="form-horizontal" novalidate name='signUpForm'>
+		<div class="form-group has-feedback" ng-class="{'has-success': signUpForm.firstName.$valid, 'has-error': signUpForm.firstName.$touched && signUpForm.firstName.$invalid}">
+			<label class="col-sm-2 control-label">First name</label>
+			<div class="col-sm-10">
+				<input type="text" name="firstName" class="form-control" placeholder="First name" ng-model="signUpCtrl.user.firstName" required>
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-if="signUpForm.firstName.$valid" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-if="signUpForm.firstName.$invalid" aria-hidden="true"></span>
+			</div>
+			<span class="help-block col-sm-12 text-center" ng-if="signUpForm.firstName.$invalid && signUpForm.firstName.$touched">
+                First name field is required
+            </span>
+		</div>
+		<div class="form-group has-feedback" ng-class="{'has-success': signUpForm.lastName.$valid, 'has-error': signUpForm.lastName.$touched && signUpForm.lastName.$invalid}">
+			<label class="col-sm-2 control-label">Last name</label>
+			<div class="col-sm-10">
+				<input type="text" name="lastName" class="form-control" placeholder="Last name" ng-model="signUpCtrl.user.lastName" required>
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-if="signUpForm.lastName.$valid" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-if="signUpForm.lastName.$invalid" aria-hidden="true"></span>
+			</div>
+			<span class="help-block col-sm-12 text-center" ng-if="signUpForm.lastName.$invalid && signUpForm.lastName.$touched">
+                Last name field is required
+            </span>
+		</div>
+		<div class="form-group has-feedback" ng-class="{'has-success': signUpForm.email.$valid, 'has-error': signUpForm.email.$touched && signUpForm.email.$invalid}">
+			<label class="col-sm-2 control-label">Email</label>
+			<div class="col-sm-10">
+				<input type="email" name="email" class="form-control" placeholder="Email" ng-model="signUpCtrl.user.email" required>
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-if="signUpForm.email.$valid" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-if="signUpForm.email.$invalid" aria-hidden="true"></span>
+			</div>
+			<span class="help-block col-sm-12 text-center" ng-if="signUpForm.email.$invalid && signUpForm.email.$touched">
+                Must be a valid email address: handle@domain format
+            </span>
+		</div>
+		<div class="form-group has-feedback" ng-class="{'has-success': signUpForm.phone.$valid, 'has-error': signUpForm.phone.$touched && signUpForm.phone.$invalid}">
+			<label class="col-sm-2 control-label">Phone</label>
+			<div class="col-sm-10">
+				<input type="text" name="phone" class="form-control" placeholder="Phone ###-###-####" ng-model="signUpCtrl.user.phone" required pattern="(\d{3})-(\d{3})-(\d{4})">
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-if="signUpForm.phone.$valid" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-if="signUpForm.phone.$invalid" aria-hidden="true"></span>
+			</div>
+			<span class="help-block col-sm-12 text-center" ng-if="signUpForm.phone.$invalid && signUpForm.phone.$touched">
+                Phone must be in the format ###-###-####.
+            </span>
+		</div>
+		<div class="form-group has-feedback" ng-class="{'has-success': signUpForm.favoriteDishNumber.$valid, 'has-error': signUpForm.favoriteDishNumber.$touched && signUpForm.favoriteDishNumber.$invalid}">
+			<label class="col-sm-2 control-label">Favorite dish number</label>
+			<div class="col-md-6 col-sm-10">
+				<input type="text" name="favoriteDishNumber" class="form-control" placeholder="Favorite dish number" ng-model="signUpCtrl.user.favoriteDishNumber"
+					required existed-item>
+				<span class="glyphicon glyphicon-ok form-control-feedback" ng-if="signUpForm.favoriteDishNumber.$valid" aria-hidden="true"></span>
+				<span class="glyphicon glyphicon-remove form-control-feedback" ng-if="signUpForm.favoriteDishNumber.$invalid" aria-hidden="true"></span>
+			</div>
+			<span class="help-block col-sm-12 text-center" ng-if="signUpForm.favoriteDishNumber.$touched && signUpForm.favoriteDishNumber.$invalid">
+				No such menu number exists
+            </span>
+		</div>
+		<div class="form-group">
+			<div class="col-sm-offset-2 col-sm-10 col-md-1">
+				<button type="submit" ng-disabled="signUpForm.$invalid" ng-click="signUpCtrl.submit()" class="btn btn-default" ng-class="{'btn-success': signUpForm.$valid, 'btn-danger': signUpForm.$invalid}">Sign Up</button>
+			</div>
+			<div class="col-md-9">
+				<menu-item ng-if="favoriteItem" menu-item="favoriteItem"></menu-item>
+			</div>
+		</div>
+	</form>
+</div>
